@@ -1,7 +1,6 @@
 package edu.utfpr.cp.dacom.sa.soilcorrection;
 
-public class ConverteKgHaEmK2O 
-        implements Conversao<Double, Double> {
+public class ConverteKgHaEmK2O implements Conversao<Double, Double> {
 
     @Override
     public Double converte(Double valor) {
