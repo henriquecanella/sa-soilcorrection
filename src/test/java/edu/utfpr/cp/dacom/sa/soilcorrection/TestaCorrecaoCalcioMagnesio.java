@@ -8,7 +8,10 @@ class TestaCorrecaoCalcioMagnesio {
 
 	@Test
 	void testaSomaTeoresCMOL() {
-		//Todo
+		var correcaoCalcioMagnesio = new CorrecaoCalcioMagnesio();
+		var somaTeores = correcaoCalcioMagnesio.SomaTeoresCMOL(0.5, 0.5, 0.5);
+		
+		assertEquals(1.5, somaTeores);
 	}
 	
 	@Test

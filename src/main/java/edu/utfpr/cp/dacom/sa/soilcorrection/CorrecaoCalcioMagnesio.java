@@ -1,13 +1,13 @@
 package edu.utfpr.cp.dacom.sa.soilcorrection;
 
 public class CorrecaoCalcioMagnesio {
-	public double correcaoCalcio (
-		double teorSolo,
-		double participacaoCTCDesejada,
-		double participacaoCTCExistente
-		
+	
+	public double SomaTeoresCMOL(
+		double valorPotassio,
+		double valorCalcio,
+		double valorMagnesio
 	) {
-		
-		return 0.0;
+		return valorPotassio + valorCalcio + valorMagnesio;
 	}
+
 }
