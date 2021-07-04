@@ -16,12 +16,16 @@ class TestaCorrecaoCalcioMagnesio {
 	
 	@Test
 	void testaCalculaAtualCTCSoloCalcio() {
-		//Todo
+		var correcaoCalcioMagnesio = new CorrecaoCalcioMagnesio();
+		var atualCTCSoloCalcio = correcaoCalcioMagnesio.CalculaAtualCTCSoloCalcio(5, 5, 5, 5);
+		assertEquals(0.0025, atualCTCSoloCalcio);
 	}
 	
 	@Test
 	void testaCalculaCTCSoloCorrecaoCalcio() {
-		//Todo
+		var correcaoCalcioMagnesio = new CorrecaoCalcioMagnesio();
+		var atualCTCSoloCalcio = correcaoCalcioMagnesio.CalculaAtualCTCSoloMagnesio(5, 5, 5, 5);
+		assertEquals(0.0025, atualCTCSoloCalcio);
 	}
 	
 	@Test
