@@ -9,28 +9,28 @@ class TestaCorrecaoCalcioMagnesio {
 	@Test
 	void testaSomaTeoresCMOL() {
 		var correcaoCalcioMagnesio = new CorrecaoCalcioMagnesio();
-		var somaTeores = correcaoCalcioMagnesio.SomaTeoresCMOL(0.5, 0.5, 0.5);
+		var somaTeores = correcaoCalcioMagnesio.SomaTeoresCMOL(0.35, 6.0, 1.5);
 		
-		assertEquals(1.5, somaTeores);
+		assertEquals(7.85, somaTeores);
 	}
 	
 	@Test
 	void testaCalculaAtualCTCSoloCalcio() {
 		var correcaoCalcioMagnesio = new CorrecaoCalcioMagnesio();
-		var atualCTCSoloCalcio = correcaoCalcioMagnesio.CalculaAtualCTCSoloCalcio(5, 5, 5, 5);
-		assertEquals(0.0025, atualCTCSoloCalcio);
+		var atualCTCSoloCalcio = correcaoCalcioMagnesio.CalculaAtualCTCSoloCalcio(0.82, 12.45, 3.47, 5.15);
+		assertEquals(56.87528551850159, atualCTCSoloCalcio);
 	}
 	
 	@Test
 	void testaCalculaCTCSoloCorrecaoCalcio() {
-		var correcaoCalcioMagnesio = new CorrecaoCalcioMagnesio();
-		var atualCTCSoloCalcio = correcaoCalcioMagnesio.CalculaAtualCTCSoloMagnesio(5, 5, 5, 5);
-		assertEquals(0.0025, atualCTCSoloCalcio);
+		
 	}
 	
 	@Test
 	void testaCalculaAtualCTCSoloMagnesio() {
-		//Todo
+		var correcaoCalcioMagnesio = new CorrecaoCalcioMagnesio();
+		var atualCTCSoloCalcio = correcaoCalcioMagnesio.CalculaAtualCTCSoloMagnesio(0.82, 12.45, 3.47, 5.15);
+		assertEquals(15.85198720877113, atualCTCSoloCalcio);
 	}
 	
 	@Test
@@ -50,7 +50,9 @@ class TestaCorrecaoCalcioMagnesio {
 	
 	@Test
 	void testaCalculaVAtual() {
-		//Todo
+		var correcaoCalcioMagnesio = new CorrecaoCalcioMagnesio();
+		var VAtual = correcaoCalcioMagnesio.CalculaVAtual(0.82, 12.45, 3.47, 5.15);
+		assertEquals(76.47327546825034, VAtual);
 	}
 	
 	@Test
