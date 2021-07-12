@@ -59,5 +59,19 @@ class TestaCorrecaoCalcioMagnesio {
 	void testaCalculaVCorrecao() {
 		//Todo
 	}
+	
+	@Test
+	void testaIdealCalcio() {
+		var correcaoCalcioMagnesio = new CorrecaoCalcioMagnesio();
+		var idealCalcio = correcaoCalcioMagnesio.IdealCalcio(1);
+		assertEquals("45 a 55", idealCalcio);
+	}
+	
+	@Test
+	void testaIdealMagneseio() {
+		var correcaoCalcioMagnesio = new CorrecaoCalcioMagnesio();
+		var idealMagnesio = correcaoCalcioMagnesio.IdealMagneseio(1);
+		assertEquals("10 a 15", idealMagnesio);
+	}
 
 }

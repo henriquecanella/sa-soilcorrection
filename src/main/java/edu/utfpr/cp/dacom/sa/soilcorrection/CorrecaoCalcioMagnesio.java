@@ -107,5 +107,35 @@ public class CorrecaoCalcioMagnesio {
 		
 		return resultado;
 	}
+	
+	public String IdealCalcio(
+		int texturaSolo
+	) {
+		if (texturaSolo == 1) {
+			return "45 a 55";
+		}
+		else if (texturaSolo == 2) {
+			return "35 a 40";
+		}
+		else {
+			return "";
+		}
+	}
+	
+	public String IdealMagneseio(
+		int texturaSolo
+	) {
+		if (texturaSolo == 1) {
+			return "10 a 15";
+		}
+		else if (texturaSolo == 2) {
+			return "8 a 12";
+		}
+		else {
+			return "";
+		}
+	}
+	
+	
 
 }
