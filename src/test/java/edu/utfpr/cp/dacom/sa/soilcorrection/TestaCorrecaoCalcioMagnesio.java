@@ -1,77 +1,67 @@
 package edu.utfpr.cp.dacom.sa.soilcorrection;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
-class TestaCorrecaoCalcioMagnesio {
+public class TestaCorrecaoCalcioMagnesio {
 
-	@Test
-	void testaSomaTeoresCMOL() {
-		var correcaoCalcioMagnesio = new CorrecaoCalcioMagnesio();
-		var somaTeores = correcaoCalcioMagnesio.SomaTeoresCMOL(0.35, 6.0, 1.5);
-		
-		assertEquals(7.85, somaTeores);
-	}
-	
-	@Test
-	void testaCalculaAtualCTCSoloCalcio() {
-		var correcaoCalcioMagnesio = new CorrecaoCalcioMagnesio();
-		var atualCTCSoloCalcio = correcaoCalcioMagnesio.CalculaAtualCTCSoloCalcio(0.82, 12.45, 3.47, 5.15);
-		assertEquals(56.87528551850159, atualCTCSoloCalcio);
-	}
-	
-	@Test
-	void testaCalculaCTCSoloCorrecaoCalcio() {
-		
-	}
-	
-	@Test
-	void testaCalculaAtualCTCSoloMagnesio() {
-		var correcaoCalcioMagnesio = new CorrecaoCalcioMagnesio();
-		var atualCTCSoloCalcio = correcaoCalcioMagnesio.CalculaAtualCTCSoloMagnesio(0.82, 12.45, 3.47, 5.15);
-		assertEquals(15.85198720877113, atualCTCSoloCalcio);
-	}
-	
-	@Test
-	void testaCalculaCTCSoloCorrecaoMagnesio() {
-		//Todo
-	}
-	
-	@Test
-	void testaCalculaQuantidadeCorretivo() {
-		//Todo
-	}
-	
-	@Test
-	void testaCalculaCusto() {
-		//Todo
-	}
-	
-	@Test
-	void testaCalculaVAtual() {
-		var correcaoCalcioMagnesio = new CorrecaoCalcioMagnesio();
-		var VAtual = correcaoCalcioMagnesio.CalculaVAtual(0.82, 12.45, 3.47, 5.15);
-		assertEquals(76.47327546825034, VAtual);
-	}
-	
-	@Test
-	void testaCalculaVCorrecao() {
-		//Todo
-	}
-	
-	@Test
-	void testaIdealCalcio() {
-		var correcaoCalcioMagnesio = new CorrecaoCalcioMagnesio();
-		var idealCalcio = correcaoCalcioMagnesio.IdealCalcio(1);
-		assertEquals("45 a 55", idealCalcio);
-	}
-	
-	@Test
-	void testaIdealMagneseio() {
-		var correcaoCalcioMagnesio = new CorrecaoCalcioMagnesio();
-		var idealMagnesio = correcaoCalcioMagnesio.IdealMagneseio(1);
-		assertEquals("10 a 15", idealMagnesio);
-	}
+    @Test
+    public void testaCustoReaisHa() {
+
+        var correcaoCalcioMagnesio = new CorrecaoCalcioMagnesio();
+
+        var qtdeCalcioMagnesioAplicarKgHa = 1844.76;
+
+        assertEquals(
+            922.68, 
+            correcaoCalcioMagnesio.calculaCusto(
+                500.0, 
+                qtdeCalcioMagnesioAplicarKgHa),
+            0.5);
+    }
+
+    @Test
+    public void testaNutrientesAdicionais() {
+
+        var correcaoCalcioMagnesio = new CorrecaoCalcioMagnesio();
+        
+        var qtdeCalcioMagnesioAplicarKgHa = 1844.76;
+
+        assertEquals(
+            1, 
+            correcaoCalcioMagnesio.getNutrientesAdicionais(
+                    qtdeCalcioMagnesioAplicarKgHa, 
+                    FonteCalcioMagnesio.GESSO_AGRICOLA)
+                        .size());
+
+        qtdeCalcioMagnesioAplicarKgHa = 3.51 * 1000;
+
+        assertEquals(
+            526.16, 
+            correcaoCalcioMagnesio.getNutrientesAdicionais(
+                qtdeCalcioMagnesioAplicarKgHa, 
+                    FonteCalcioMagnesio.GESSO_AGRICOLA)
+                        .stream()
+                        .findFirst()
+                        .get()
+                        .getCorrecaoAdicional(),
+            0.5);
+    }
+
+    @Test
+    public void testaQtdeAplicar() {
+
+        double qtdeFonteAdicionar = 1.291755;
+        double prntPercent = 0.7;
+
+        assertEquals(1.85, 
+            new CorrecaoCalcioMagnesio()
+                .calculaQuantidadeAplicar(
+                    qtdeFonteAdicionar, 
+                    prntPercent),
+            0.05);
+
+    }
 
 }
