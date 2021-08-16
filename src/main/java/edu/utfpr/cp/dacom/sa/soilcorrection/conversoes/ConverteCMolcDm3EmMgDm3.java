@@ -1,4 +1,4 @@
-package edu.utfpr.cp.dacom.sa.soilcorrection;
+package edu.utfpr.cp.dacom.sa.soilcorrection.conversoes;
 
 public class ConverteCMolcDm3EmMgDm3 implements Conversao<Double, Double> {
 

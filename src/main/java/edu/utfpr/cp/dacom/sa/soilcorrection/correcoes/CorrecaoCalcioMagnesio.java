@@ -1,4 +1,6 @@
-package edu.utfpr.cp.dacom.sa.soilcorrection;
+package edu.utfpr.cp.dacom.sa.soilcorrection.correcoes;
+
+import edu.utfpr.cp.dacom.sa.soilcorrection.fontes.FonteCalcioMagnesio;
 
 public class CorrecaoCalcioMagnesio 
         implements ICorrecaoNutriente<FonteCalcioMagnesio> {
